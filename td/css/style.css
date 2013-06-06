@@ -1,0 +1,226 @@
+@font-face { font-family: myFont; src: url('../font/myFont.TTF'); } 
+
+#mouseCoors{
+    color: #ffffff;
+    font-size: 18px;
+}
+
+
+body { 
+    background-color: #231F20;
+    color: silver;
+    font-family: myFont, sans-serif; 
+}
+
+h1 { 
+    color: silver;
+    text-align: center; 
+    margin-top: 0; 
+    font-size: 50px;
+    width: 600px;
+}
+
+h1 span {
+    color: #fff;
+}
+
+#beta {
+    color: red;
+    font-size: 20px;
+    
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.opacity {
+   opacity:0.4; 
+}
+
+.preLoad {
+    display: none;
+}
+
+#main {
+    width: 650px;
+    margin: 0 auto; 
+    margin-top: 30px;
+}
+
+#canvas-div {
+    width: 400px;
+    height: 370px;
+    background-image : url('../img/border.png');
+    background-repeat:  no-repeat;
+    float: left;
+    padding: 40px;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+#canvasMap {
+    position: absolute;
+    z-index: 0;
+}
+
+#canvasObjects {
+    position: absolute;
+    z-index: 1;
+}
+
+
+#side {
+    width: 160px;
+    height: 220px;
+    float: left;
+    
+}
+
+#canvasText {
+    position: absolute;
+    z-index: 0;
+    margin-left: 40px;
+}
+
+#towerInfo {
+    width: 160px;
+    height: 220px;
+    background-image : url('../img/smallBorder.png');
+    background-repeat:  no-repeat;
+    float: left;
+    text-align: center;
+}
+
+#towerInfo2 {
+    width: 160px;
+    height: 220px;
+    background-image : url('../img/smallBorder.png');
+    background-repeat:  no-repeat;
+    z-index: 20;
+    position: absolute;
+    text-align: center;
+}
+
+
+#towerInfo p {
+    margin-bottom: 0;
+}
+
+#towerInfo2 p {
+    margin-bottom: 7px;
+}
+
+#tName {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+#towerInfo a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    line-height:40px;
+}
+
+.towerData {
+    text-align: left;
+    margin: 0 0 7px 30px;
+    font-size: 12px;
+}
+
+#upgradeBTN {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 1px 1px 1px 1px;
+}
+
+#sellBTN {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 1px 1px 1px 1px;
+    margin-left: 28px;
+}
+
+#towerRedBtn {
+    display:block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-image : url('../img/redtower.png');
+    background-repeat:  no-repeat;
+}
+
+#towerBlackBtn {
+    display:block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-image : url('../img/bluetower.png');
+    background-repeat:  no-repeat;
+}
+
+#towerGreenBtn{
+    display:block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-image : url('../img/greentower.png');
+    background-repeat:  no-repeat;
+}
+
+#controls {   
+    overflow: hidden;
+    margin-top: 40px;
+    width: 160px;
+    height: 150px;
+    background-image : url('../img/smallBorder.png');
+    background-repeat:  no-repeat;
+    padding: 20px;
+    
+}
+
+#controls-bottom{
+    width: 600px;
+    height: 46px;
+    overflow: hidden;
+}
+
+
+
+#loadingDiv {
+    height: 100px;
+    width: 320px;
+    position: absolute;
+    margin-top: 100px;
+    color: #fff;
+   
+}
+
+#loadingbar {
+    height: 20px;
+    background-color: #fff;
+}
+
+
+#controls-bottom a{
+    width: 32px;
+	height: 32px;
+	margin: 0 10px 17px 0;
+	display: block;
+	float: left;
+}
+
+#controls-bottom a img{
+	border: none;
+}
+
+

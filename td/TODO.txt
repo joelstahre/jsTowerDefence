@@ -1,0 +1,97 @@
+
+**** TODO ****
+
+0.** Ej Implementerat ***
+*
+* 1. Pasue funktion, ska kunna pausa, samt automatisk pasusning vid tabb av fönster. PÅBÖRJAD
+* 2. Kunna välja bana, ev. kunna klara barnor och låsa upp nya.
+* 4. Vid balansering, kanske kunna hitta ett lättare sätt att räkna ut, kanske i % (procent) ?
+* 5. Några fler slags bullet ? Laser? slowdown ?
+*
+*************************
+
+
+
+
+1.****** bullet.js ******
+*
+*
+*
+*************************
+
+
+2.****** enemy.js *******
+*
+* 2. Findernas positioner måste kollas upp, funkar inte helt klockrent på alla levels, kan inte gå i kanterna. samt att fienderna svänger av tidigare mot målet. Trologitvis ordningen på if satserna.
+* 3. När banan är ritat precis i kanten. så ger det ett fel, undefiend.
+* 4. Se till att Speed fungerar som det ska.
+* 
+*
+*************************
+
+
+3.**** enemyTypes.js ****
+*
+* 1. Balansera.
+*
+*
+*************************
+
+
+4.****** game.js ********
+*
+* 1.  Tower buttons : Förenkla, optimera. Känns inte riktigt bra!
+* 2.  Mouse functions : Bör dem ligga någon annanstans i koden? Kanske i en egen "klass"?
+* 3.  Funktion skapad i loop. Gör om gör rätt.
+* 5.  Glöm ej plocka bort mus kordinater, även i index.html och css
+* 6.  Kanske kunna skapa någon smartare funktion för utritandet av StartScreens på canvas.
+* 8.  Lite mer saker kan nog flyttas till init, saker som inte behöver/skall laddas in innan init körts.
+* 9.  Variabler bör inte initieras i en loop. Nödvändigt att tänka på eller inte?
+* 11. Pause funktionen.
+* 12. Pause when onBlur.
+*
+*************************
+
+
+5.***** levels.js *******
+*
+*
+*
+*************************
+
+
+6.******* map.js ********
+*
+*
+*
+*************************
+
+
+7.***** player.js *******
+*
+* 1. Implementera vid gameover. if hp <= 0
+*
+*************************
+
+
+8.****** point.js *******
+*
+*
+*
+*************************
+
+
+9.****** tower.js *******
+*
+* 1. Kolla upp hur jag ska göra med coolDown och Date.Now();
+*
+*************************
+
+
+10.**** towerTypes.js ***
+*
+* 1. Balancera.
+* 2. Lägga till coolDown som egenskap.
+*
+*************************
+

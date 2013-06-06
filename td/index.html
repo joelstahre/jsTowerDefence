@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/reset.css" type="text/css" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+        <title>JS TowerDefence</title>
+    </head>
+
+    <body id="body">
+        <!--<div id="mouseCoors"></div></br>
+        <div id="points"></div>-->
+        
+         <div id="main">
+        <h1>JS <span>TowerDefence</span><span id="beta">Beta</span></h1>
+
+        
+            <canvas id="canvasText" width="320" height="40"></canvas>
+     
+
+        <div id="canvas-div">
+            <div id="loadingDiv" class="preLoad">
+                <p></p>
+                <div id="loadingbar"></div>
+            </div>
+            
+            <canvas id="canvasMap" width="320" height="320"></canvas>
+            <canvas id="canvasObjects" width="320" height="320"></canvas>
+            
+        </div>
+        
+        <div id="side">
+            <div id="towerInfo" class="opacity">
+                <p>Towers</p>
+                
+                <div id="towersInner" class="hidden">
+                    <a href="#" id="towerRedBtn" towerName="1"></a>
+                    <a href="#" id="towerBlackBtn" towerName="2"></a>
+                    <a href="#" id="towerGreenBtn" towerName="3"></a>
+                </div>
+               
+            </div>
+         
+            <div id="towerInfo2" class="hidden">
+                <p>Towers Info</p>
+                <p class="towerData"><span id="tName"></span></p>
+                <p class="towerData">Level: <span id="tLevel"></span></p>
+                <p class="towerData">DMG: <span id="tDamage"></span></p>
+                <p class="towerData">Range: <span id="tRange"></span></p>
+                <p class="towerData">Upgrade: <a href="#" id="upgradeBTN"></a></p>
+                <p class="towerData">Sell: <a href="#" id="sellBTN"></a></p>
+            </div>
+        </div>
+      
+        <div id="controls" class="opacity">
+        
+                <p>Wave: <span id="waveCount">0</span></p>
+                <p>HP: <span id="hp"></span></p>
+                <p>$$$: <span id="cash"></span></p>
+    
+        </div>   
+        
+        <div id="controls-bottom">
+            
+            <a href="#" title="GitHub">
+                <img src="img/icons/GitHub.png" alt="GitHub">
+            </a>
+        
+            <a href="https://www.facebook.com/joel.stahre" target="_blank" title="Facebook">
+                <img src="img/icons/Facebook.png" alt="Facebook">
+            </a>
+            
+            <a href="https://twitter.com/joelstahre" target="_blank" title="Twitter">
+                <img src="img/icons/Twitter.png" alt="Twitter">
+            </a>
+            
+            <a href="https://plus.google.com/u/0/102263969561173879976/" target="_blank" title="Google Plus">
+                <img src="img/icons/Google.png" alt="Google Plus">
+            </a>
+        </div>
+        
+        
+        
+    </div>
+	    <script type="text/javascript" src="js/w.js"></script>
+  
+        
+        <script type="text/javascript" src="js/point.js"></script>
+        <script type="text/javascript" src="js/enemy.js"></script>
+        <script type="text/javascript" src="js/enemytypes.js"></script>
+        <script type="text/javascript" src="js/game.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
+        <script type="text/javascript" src="js/levels.js"></script>
+        <script type="text/javascript" src="js/player.js"></script>
+        <script type="text/javascript" src="js/tower.js"></script>
+        <script type="text/javascript" src="js/towerTypes.js"></script>
+        <script type="text/javascript" src="js/bullet.js"></script>
+        <script type="text/javascript" src="js/preLoad.js"></script>
+    </body>
+</html>
