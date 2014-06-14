@@ -1,7 +1,7 @@
 jsTowerDefence
 ==============
 
-Live Demo : [JS TowerDefence](http://joelstahre.com/jstowerdefence/td/)
+Live Demo : [JS TowerDefence](http://showcase.joelstahre.com/jstowerdefence/)
 
 It’s strongly recommended to use latest version of Google Chrome or Mozilla Firefox browser for the best viewer experience.
 
