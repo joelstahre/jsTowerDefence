@@ -9,10 +9,10 @@ J.Game = function () {
 
     this.canvasMap = document.getElementById('canvasMap');
     this.canvasMapCTX = this.canvasMap.getContext('2d');
-    
+
     this.canvasObjects = document.getElementById('canvasObjects');
     this.canvasObjectsCTX = this.canvasObjects.getContext('2d');
-    
+
     this.canvasText = document.getElementById('canvasText').getContext('2d');
 
     this.canvasMouse = document.getElementById("canvasObjects");
@@ -31,7 +31,7 @@ J.Game = function () {
     this.initiated = false;
     this.gamePaused = false;
     this.updateLoopInterval;
-    
+
     //Config
     //***************//
     this.levelNr = 1;
@@ -46,8 +46,8 @@ J.Game = function () {
     this.towerTypes = J.TowerTypes;
     this.level = J.Levels;
     this.map;
-    this.player; 
-    
+    this.player;
+
     this.mouseX;
     this.mouseY;
 
@@ -87,49 +87,49 @@ J.Game = function () {
     };
 
 
-    
+
     // Tower buttons och tower onclick.
     // Se TODO lista 4.1
     this.towerInnerDiv = document.getElementById("towersInner");
     this.towerRedBtn = document.getElementById("towerRedBtn");
-    this.towerBlackBtn = document.getElementById("towerBlackBtn")   
+    this.towerBlackBtn = document.getElementById("towerBlackBtn")
     this.towerGreenBtn = document.getElementById("towerGreenBtn");
 
-    this.towerRedBtn.onclick = function () {        
+    this.towerRedBtn.onclick = function () {
         that.towerType = 1;
 
         if(that.player.playerCash < that.towerTypes[that.towerType].cost){
             that.placingTower = false;
         } else {
-            that.placingTower = true;    
+            that.placingTower = true;
         }
     };
     this.towerBlackBtn.onclick = function () {
         that.towerType = 2;
-        
+
         if(that.player.playerCash < that.towerTypes[that.towerType].cost){
             that.placingTower = false;
         } else {
-            that.placingTower = true;    
+            that.placingTower = true;
         }
     };
     this.towerGreenBtn.onclick = function () {
         that.towerType = 3;
-        
+
         if(that.player.playerCash < that.towerTypes[that.towerType].cost){
             that.placingTower = false;
         } else {
-            that.placingTower = true;    
+            that.placingTower = true;
         }
     };
-    
-    
+
+
     //Keyboard events
     function keyDown(e) {
         if (e.keyCode == 80) that.PauseGame();
     }
-    
- 
+
+
     // Mouse functions.
     // Se TODO lista 4.2
     this.UItowerInfo = document.getElementById("towerInfo2");
@@ -144,14 +144,14 @@ J.Game = function () {
 
         console.log("mouse Down");
         var level = that.level[that.levelNr].layout;
-        
-        
+
+
         for (var i = 0; i < that.towers.length; i++) {
 
             var tower = that.towers[i];
 
             if (that.pointX == tower.x && that.pointY == tower.y) {
-       
+
                 that.UItowerInfo.classList.remove("hidden");
                 that.UIName.innerHTML = tower.towerName;
                 that.UILevel.innerHTML = tower.level;
@@ -159,13 +159,13 @@ J.Game = function () {
                 that.UIRange.innerHTML = tower.range / that.pointSize;
                 that.upgradeBTN.innerHTML = "$" + (tower.cost);
                 that.sellBTN.innerHTML = "$" + (tower.sellValue);
-                
-                
+
+
                 // Se TODO lista 4.3
                 that.upgradeBTN.onclick = function () {
-                    tower.upgrade();    
+                    tower.upgrade();
                 };
-                
+
                 that.sellBTN.onclick = function () {
                     tower.sell(i);
                     that.UItowerInfo.classList.add("hidden");
@@ -173,23 +173,23 @@ J.Game = function () {
                 break;
             }
             else{
-                that.UItowerInfo.classList.add("hidden");   
+                that.UItowerInfo.classList.add("hidden");
             }
         }
-        
-        
+
+
         // Kontroll för att kolla så att man inte placerar ut torn på start/slut eller path position.
         if (level[that.pointY][that.pointX] == 2 || level[that.pointY][that.pointX] == 1 || level[that.pointY][that.pointX] == 3) {
-            
+
             return;
-            
+
         } else if (that.placingTower) {
-        
+
             that.createTower();
-            that.placingTower = false; 
-        } 
-        
-        
+            that.placingTower = false;
+        }
+
+
     }
 
     function mouseMove(e) {
@@ -213,7 +213,7 @@ J.Game = function () {
             e.target.innerHTML = '$' + this.price;
             that.towerHover = e.target;
         }
-        
+
         if (that.towerHover && e.target != that.towerHover) {
             that.towerHover.style.backgroundImage = "url(" + that.towerTypes[that.towerHover.getAttribute('towerName')].src + ")";
             that.towerHover.innerHTML = "";
@@ -223,7 +223,7 @@ J.Game = function () {
 
 
     this.startScreen();
-    
+
 };
 
 
@@ -241,7 +241,7 @@ J.Game.prototype.startScreen = function () {
         subHeading = "",
         name = "",
         p = "";
-       
+
     function getCenter(ctx, text, y) {
         var measurement = ctx.measureText(text);
         var x = (ctx.canvas.width - measurement.width) / 2;
@@ -258,13 +258,13 @@ J.Game.prototype.startScreen = function () {
         imgHelp = document.getElementById("../td/img/helpBTN.png"),
         imgCredits = document.getElementById("../td/img/creditsBTN.png"),
         imgBack = document.getElementById("../td/img/backBTN.png");
-        
+
     this.canvasObjectsCTX.drawImage(imgPlay, 140, 130);
     this.canvasObjectsCTX.drawImage(imgHelp, 140, 190);
     this.canvasObjectsCTX.drawImage(imgCredits, 140, 250);
 
     that.canvasMouse.addEventListener('mousedown', function () {
-        
+
         //Start Game
         if (that.mouseX > 140 && that.mouseX < 190 && that.mouseY > 130 && that.mouseY < 180 && !that.initiated && !helpScreen && !creditScreen) {
 
@@ -284,30 +284,30 @@ J.Game.prototype.startScreen = function () {
             that.canvasObjectsCTX.fillStyle = "#E9F2E1";
             that.canvasObjectsCTX.font = 'bold 30px myFont';
             getCenter(that.canvasObjectsCTX, title, y);
-            
-            
+
+
             that.canvasObjectsCTX.fillStyle = "#E9F2E1";
             that.canvasObjectsCTX.font = 'bold 15px myFont';
-            
+
             p = "Build towers to defend your base";
             that.canvasObjectsCTX.fillText(p, 10, 100);
-            
-            p = "against the enemy monsters."; 
+
+            p = "against the enemy monsters.";
             that.canvasObjectsCTX.fillText(p, 10, 120);
-            
-            p = "Uppgrade the towers if you "; 
+
+            p = "Uppgrade the towers if you ";
             that.canvasObjectsCTX.fillText(p, 10, 140);
-            
-            p = "can afford.............."; 
+
+            p = "can afford..............";
             that.canvasObjectsCTX.fillText(p, 10, 160);
-            
+
             that.canvasObjectsCTX.drawImage(imgBack, 0, 270);
         }
         //Credits menu
         else if (that.mouseX > 140 && that.mouseX < 190 && that.mouseY > 250 && that.mouseY < 296 && !that.initiated && !helpScreen) {
 
             that.canvasObjectsCTX.clearRect(0, 0, 320, 320);
-            
+
             creditScreen = true;
             y = (that.canvasObjectsCTX.canvas.height / 2) - 130;
             title = "Credits";
@@ -315,25 +315,25 @@ J.Game.prototype.startScreen = function () {
             that.canvasObjectsCTX.fillStyle = "#E9F2E1";
             that.canvasObjectsCTX.font = 'bold 30px myFont';
             getCenter(that.canvasObjectsCTX, title, y);
-            
-            
+
+
             that.canvasObjectsCTX.font = 'bold 22px myFont';
             subHeading = "Code and Graphics";
             getCenter(that.canvasObjectsCTX, subHeading, 80);
-            
+
             that.canvasObjectsCTX.font = 'bold 18px myFont';
             name = "Joel Stahre";
             getCenter(that.canvasObjectsCTX, name, 110);
-            
-            
+
+
             that.canvasObjectsCTX.font = 'bold 22px myFont';
             subHeading = "Special Thanks to";
             getCenter(that.canvasObjectsCTX, subHeading, 170);
-            
+
             that.canvasObjectsCTX.font = 'bold 18px myFont';
             name = "Robin Bertram";
             getCenter(that.canvasObjectsCTX, name, 200);
-            
+
             that.canvasObjectsCTX.drawImage(imgBack, 0, 270);
 
         }
@@ -352,10 +352,10 @@ J.Game.prototype.startScreen = function () {
 J.Game.prototype.levelScreen = function () {
     var that = this;
     this.canvasObjectsCTX.clearRect(0, 0, 320, 320);
-    
+
     var levelScreen = true;
     var title = "Select Level";
-       
+
     function getCenter(ctx, text, y) {
         var measurement = ctx.measureText(text);
         var x = (ctx.canvas.width - measurement.width) / 2;
@@ -366,22 +366,22 @@ J.Game.prototype.levelScreen = function () {
     this.canvasObjectsCTX.fillStyle = "#E9F2E1";
     this.canvasObjectsCTX.font = 'bold 33px myFont';
     getCenter(this.canvasObjectsCTX, title, y);
-    
+
     that.canvasObjectsCTX.fillStyle = "#E9F2E1";
     that.canvasObjectsCTX.font = 'bold 15px myFont';
-    
+
     var lvl1 = document.getElementById("../td/img/lvl1.png"),
         lvl1Text = "Level 1",
         lvl2 = document.getElementById("../td/img/lvl2.png"),
         lvl2Text = "Level 2";
-    
+
     this.canvasObjectsCTX.drawImage(lvl1, 10, 50);
     that.canvasObjectsCTX.fillText(lvl1Text, 30, 150);
     this.canvasObjectsCTX.drawImage(lvl2, 10, 180);
     that.canvasObjectsCTX.fillText(lvl2Text, 30, 280);
-    
+
     that.canvasMouse.addEventListener('mousedown', function () {
-    
+
         if (that.mouseX > 10 && that.mouseX < 110 && that.mouseY > 55 && that.mouseY < 150 && levelScreen) {
                 that.canvasObjectsCTX.clearRect(0, 0, 320, 320);
                 levelScreen = false;
@@ -394,7 +394,7 @@ J.Game.prototype.levelScreen = function () {
                 that.init();
         }
     }, false);
-     
+
 };
 
 
@@ -403,12 +403,12 @@ J.Game.prototype.init = function () {
     var that = this,
         towerDiv = document.getElementById("towerInfo"),
         statsDiv = document.getElementById("controls");
-    
+
     // Se TODO lista 4.8
-    
+
     this.map = new J.Map(this.canvasMapCTX, this.level, this.levelNr);
     this.player = new J.Player();
-    
+
     that.towerInnerDiv.classList.remove("hidden");
     towerDiv.classList.remove("opacity");
     statsDiv.classList.remove("opacity");
@@ -448,31 +448,31 @@ J.Game.prototype.init = function () {
 // Se TODO lista 4.11
 J.Game.prototype.PauseGame = function () {
     var that = this;
-  
-  
+
+
   if (!this.gamePaused) {
-      
-    console.log("Game Paused"); 
+
+    console.log("Game Paused");
     clearInterval(that.updateLoopInterval);
     that.gamePaused = true;
-    
+
   } else if (this.gamePaused) {
-     
+
     console.log("Game UnPaused");
     that.updateLoopInterval = setInterval(function () {
         that.updateAll();
     }, 1000 / that.fps);
-    
+
     that.gamePaused = false;
   }
-  
-  
+
+
 };
 
 
 // Create Tower
 J.Game.prototype.createTower = function () {
-    
+
     // När man placerar ut ett torn så skapas ett nytt Tower Objekt.
     this.towers[this.towers.length] = new J.Tower(this.pointX, this.pointY, this.towers, this.towerType, this.player, this.enemies, this.bullets);
 
@@ -486,7 +486,7 @@ J.Game.prototype.startWaves = function () {
 
     this.waveCount++;
     document.getElementById('waveCount').innerHTML = this.waveCount;
-    
+
     // Roterar enemy typen varje wave.
     this.type++;
     if (this.type > 3) {
@@ -498,7 +498,7 @@ J.Game.prototype.startWaves = function () {
         that.spawnEnemy(that.SPAWN_AMOUNT, that.type);
 
         if(that.spawnCounter >= that.waveSize) {
-            
+
             that.spawnCounter = 0;
             clearInterval(that.spawnInterval);
             that.waiting = false;
@@ -511,8 +511,8 @@ J.Game.prototype.startWaves = function () {
 
 // Spawn Enemy
 J.Game.prototype.spawnEnemy = function (n, type) {
-    
-    // Skapar ett x antal enemyobjekt beroende på inparameter n.    
+
+    // Skapar ett x antal enemyobjekt beroende på inparameter n.
     for (var i = 0; i < n; i++) {
         this.enemies[this.enemies.length] = new J.Enemy(type , this.enemies, this.level, this.levelNr, this.player);
         //console.log(this.enemies);
@@ -585,12 +585,12 @@ J.Game.prototype.updateAll = function () {
 // Draw All
 J.Game.prototype.drawAll = function () {
     this.canvasObjectsCTX.clearRect(0, 0, 640, 640); // Clearar canvasObject varje iteration.
-    
+
     // Draw All Eneemies
     for (var i = 0; i < this.enemies.length; i++) {
         this.enemies[i].draw(this.canvasObjectsCTX);
     }
-    
+
     // Draw All Towers
     for (var i = 0; i < this.towers.length; i++) {
         this.towers[i].draw(this.canvasObjectsCTX);
@@ -606,7 +606,7 @@ J.Game.prototype.drawAll = function () {
     if (this.placingTower){
         this.canvasObjectsCTX.fillStyle = "#29FF37";
         this.canvasObjectsCTX.fillRect(this.pointX * this.pointSize , this.pointY * this.pointSize , this.pointSize, this.pointSize);
-    }   
+    }
 };
 
 
